@@ -84,3 +84,11 @@ def test_many(test_name):
     else:
         # If it's not a list, then `expected` is the name of one of the inputs
         assert result == times.time_range(*test_input[expected])
+
+
+
+
+# Testing-10
+def test_range_backwards():
+    with pytest.raises(ValueError, match=r"Stopping date should happen after than starting date"):
+        times.time_range("2019-10-31 00:00:00", "2019-10-30 00:50:00", 3, 600)
