@@ -6,6 +6,3 @@ def test_given_input():
     result = times.overlap_time(large, short)
     expected = [('2010-01-12 10:30:00', '2010-01-12 10:37:00'), ('2010-01-12 10:38:00', '2010-01-12 10:45:00')]
     assert result == expected
-
-if __name__ == "__main__":
-    test_given_input()
