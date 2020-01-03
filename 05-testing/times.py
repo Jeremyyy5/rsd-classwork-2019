@@ -9,13 +9,33 @@ def time_range(t0, t1, n=1, g=0):
     return [(ta.strftime("%Y-%m-%d %H:%M:%S"), tb.strftime("%Y-%m-%d %H:%M:%S")) for ta, tb in sec_range]
 
 
+# def overlap_time(obs1, obs2):
+#     ot = []
+#     for tr0, tr1 in obs1:
+#         for tra, trb in obs2:
+#             low = max(tr0, tra)
+#             high = min(tr1, trb)
+#             if low == high:
+#                 # If low and high are equal is that edges are touching
+#                 # and we don't want to return such element, continue to
+#                 # next element.
+#                 continue
+#             ot.append((low, high))
+#     return ot
+
 def overlap_time(obs1, obs2):
     ot = []
     for tr0, tr1 in obs1:
         for tra, trb in obs2:
-            low = max(tr0, tra)
-            high = min(tr1, trb)
-            ot.append((low, high))
+             if tr0 <= tra <= tr1 or tr0 <= trb <= tr1:
+                low = max(tr0, tra)
+                high = min(tr1, trb)
+                if low == high:
+                    # If low and high are equal is that edges are touching
+                    # and we don't want to return such element, continue to
+                    # next element.
+                    continue   
+                ot.append((low, high))
     return ot
 
 
