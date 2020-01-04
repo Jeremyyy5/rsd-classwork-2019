@@ -61,7 +61,7 @@ def test_20_min():
 
 
 # Testing-09
-with open("05-testing\fixture.yaml", 'r') as yamlfile:
+with open("05-testing/fixture.yaml", 'r') as yamlfile:
     fixture = yaml.safe_load(yamlfile)
 
 
